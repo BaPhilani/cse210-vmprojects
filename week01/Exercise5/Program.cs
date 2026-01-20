@@ -1,48 +1,39 @@
+//Displays the message, "Welcome to the Program!
+//Asks for and returns the user's name (as a string)
+//Accepts an integer as a parameter and returns that number squared (as an integer)
+//Accepts two integers as parameters and returns their sum (as an integer)
+//Accepts the user's name and the squared number and displays them
 using System;
-
 class Program
 {
-    tatic void Main(string[] args)
+    static void Main(string[] args)
     {
-        DisplayWelcomeMessage();
+        Console.WriteLine("Welcome to the Program!");
 
-        string userName = PromptUserName();
-        int userNumber = PromptUserNumber();
-
-        int squaredNumber = SquareNumber(userNumber);
-
-        DisplayResult(userName, squaredNumber);
-    }
-
-    static void DisplayWelcomeMessage()
-    {
-        Console.WriteLine("Welcome to the program!");
-    }
-
-    static string PromptUserName()
-    {
-        Console.Write("Please enter your name: ");
+        Console.Write("What is your name? ");
         string name = Console.ReadLine();
 
-        return name;
-    }
-
-    static int PromptUserNumber()
-    {
-        Console.Write("Please enter your favorite number: ");
+        Console.Write("Enter an integer to be squared: ");
         int number = int.Parse(Console.ReadLine());
+        int squaredNumber = Square(number);
 
-        return number;
+        Console.Write("Enter the first integer to sum: ");
+        int firstNumber = int.Parse(Console.ReadLine());
+        Console.Write("Enter the second integer to sum: ");
+        int secondNumber = int.Parse(Console.ReadLine());
+        int sum = Sum(firstNumber, secondNumber);
+
+        Console.WriteLine($"{name}, the square of {number} is {squaredNumber}.");
+        Console.WriteLine($"The sum of {firstNumber} and {secondNumber} is {sum}.");
     }
 
-    static int SquareNumber(int number)
+    static int Square(int num)
     {
-        int square = number * number;
-        return square;
+        return num * num;
     }
 
-    static void DisplayResult(string name, int square)
+    static int Sum(int a, int b)
     {
-        Console.WriteLine($"{name}, the square of your number is {square}");
+        return a + b;
     }
 }

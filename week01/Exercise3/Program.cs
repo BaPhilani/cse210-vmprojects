@@ -1,15 +1,11 @@
+
+//Guess My Number game the computer picks a magic number, and then the user tries to guess it.
 using System;
-
-
-// For Parts 1 and 2, where the user specified the number...
-// Console.Write("What is the magic number? ");
-// int magicNumber = int.Parse(Console.ReadLine());
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        // For Part 3, where we use a random number
         Random randomGenerator = new Random();
         int magicNumber = randomGenerator.Next(1, 101);
 
@@ -19,21 +15,26 @@ internal class Program
         while (guess != magicNumber)
         {
             Console.Write("What is your guess? ");
-            guess = int.Parse(Console.ReadLine());
+            string? input = Console.ReadLine();
+
+            if (!int.TryParse(input, out guess))
+            {
+                Console.WriteLine("Please enter a valid integer.");
+                continue;
+            }
 
             if (magicNumber > guess)
             {
-                Console.WriteLine("Higher");
+                Console.WriteLine("Too low — guess higher.");
             }
             else if (magicNumber < guess)
             {
-                Console.WriteLine("Lower");
+                Console.WriteLine("Too high — guess lower.");
             }
             else
             {
                 Console.WriteLine("You guessed it!");
             }
-
         }
     }
 }

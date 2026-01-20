@@ -5,6 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Ask the user for their grade percentage, then write a series of if, else if, else statements to print out the appropriate letter grade. 
         Console.Write("What is your grade percentage? ");
         string answer = Console.ReadLine();
         int percent = int.Parse(answer);
