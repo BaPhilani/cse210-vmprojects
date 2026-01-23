@@ -1,0 +1,13 @@
+// the principle of encapsulation by creating classes to hold a fraction, 
+//Attributes for the top and bottom numbers
+//Constructors
+//Getters and setters for the top and bottom numbers
+//Methods to return representations of both the fractional and decimal views.
+using System.Formats.Asn1;
+
+namespace week03.Fractions
+{
+	// Add your class definition here
+}
+
+}
