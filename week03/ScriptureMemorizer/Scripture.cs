@@ -55,4 +55,4 @@ class Scripture
     {
         return _words.All(w => w.IsHidden());
     }
-}
+}  

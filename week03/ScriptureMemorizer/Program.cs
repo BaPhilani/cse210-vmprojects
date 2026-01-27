@@ -12,6 +12,15 @@ class Program
         // Helps users to memorize multiple scriptures instead of just one
 
         List<Scripture> library = LoadScriptures("scriptures.txt");
+        
+        if (library.Count == 0)
+        {
+            Console.WriteLine("Error: No scriptures found in scriptures.txt");
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+            return;
+        }
+        
         Random random = new Random();
         Scripture scripture = library[random.Next(library.Count)];
         
@@ -49,7 +58,18 @@ class Program
     static List<Scripture> LoadScriptures(string filename)
     {
         List<Scripture> scriptures = new List<Scripture>();
-        foreach (var line in File.ReadLines(filename))
+        
+        // Get the directory where the executable is located
+        string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        string fullPath = Path.Combine(exeDirectory, filename);
+        
+        if (!File.Exists(fullPath))
+        {
+            Console.WriteLine($"Current directory: {Directory.GetCurrentDirectory()}");
+            return scriptures;
+        }
+        
+        foreach (var line in File.ReadLines(fullPath))
         {
             var parts = line.Split('|');
             if (parts.Length == 2)
