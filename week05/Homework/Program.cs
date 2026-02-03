@@ -1,9 +1,11 @@
 using System;
+using Homework;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Homework Project.");
+        Assignment assignment = new Assignment("Victor Mtisi", "inheritance in programming", 10);
+        Console.WriteLine(assignment.GetSummary());
     }
 }
