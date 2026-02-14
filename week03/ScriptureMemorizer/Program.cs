@@ -26,7 +26,7 @@ class Program
         
         while (true)
         {
-            Console.Clear();
+            SafeClear();
             scripture.Display();
             
             if (scripture.IsFullyHidden())
@@ -78,5 +78,22 @@ class Program
             }
         }
         return scriptures;
+    }
+
+    static void SafeClear()
+    {
+        if (Console.IsOutputRedirected)
+        {
+            return;
+        }
+
+        try
+        {
+            Console.Clear();
+        }
+        catch (IOException)
+        {
+            // Ignore clear failures in environments without a real console.
+        }
     }
 }  
