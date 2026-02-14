@@ -20,6 +20,7 @@ class ChecklistGoal : Goal
             {
                 MarkCompleted();
                 Console.WriteLine($"Congratulations! You've completed the checklist goal: {GetName()} and earned {GetPoints()} points!");
+                DisplayBonusCelebration();
             }
             else
             {
@@ -30,6 +31,17 @@ class ChecklistGoal : Goal
         {
             Console.WriteLine($"You've already completed the checklist goal: {GetName()}.");
         }
+    }
+
+    private void DisplayBonusCelebration()
+    {
+        Console.WriteLine("\n🎉 ✨ BONUS CELEBRATION ✨ 🎉");
+        Console.WriteLine("═══════════════════════════════════");
+        Console.WriteLine("  AMAZING ACHIEVEMENT UNLOCKED!");
+        Console.WriteLine("  You've conquered this challenge!");
+        Console.WriteLine("  Keep up the fantastic momentum!");
+        Console.WriteLine("═══════════════════════════════════");
+        Console.WriteLine("Bonus Points Awarded: +50 XP\n");
     }
 
     public int GetTargetCount()
